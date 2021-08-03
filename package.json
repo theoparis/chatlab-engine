@@ -1,0 +1,69 @@
+{
+    "name": "@toes/typescript-template",
+    "version": "0.0.1",
+    "description": "",
+    "type": "module",
+    "main": "./dist/index.cjs",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.cjs"
+        }
+    },
+    "config": {
+        "commitizen": {
+            "path": "cz-conventional-changelog"
+        }
+    },
+    "husky": {
+        "hooks": {
+            "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+        }
+    },
+    "scripts": {
+        "cm": "cz",
+        "build": "rollup -c",
+        "watch": "rollup -cw",
+        "test": "jest",
+        "lint": "eslint src/**/*.ts --fix",
+        "coverage": "pnpm run test -- --coverage",
+        "prepublishOnly": "pinst --disable && pnpm run lint && pnpm run test && pnpm run build",
+        "postinstall": "husky install",
+        "postpublish": "pinst --enable"
+    },
+    "keywords": [
+        "typescript",
+        "node"
+    ],
+    "author": "Theo Paris",
+    "license": "MIT",
+    "devDependencies": {
+        "@commitlint/cli": "^13.1.0",
+        "@commitlint/config-conventional": "^13.1.0",
+        "@rollup/plugin-node-resolve": "^13.0.4",
+        "@rollup/plugin-typescript": "^8.2.5",
+        "@sucrase/jest-plugin": "^2.1.0",
+        "@theoparis/eslint-config": "github:creepinson/eslint-config#update",
+        "@types/jest": "^26.0.24",
+        "@types/node": "16.4.10",
+        "commitizen": "^4.2.4",
+        "cz-conventional-changelog": "^3.3.0",
+        "es-jest": "^1.2.0",
+        "esbuild": "^0.12.17",
+        "eslint": "7.32.0",
+        "husky": "7.0.1",
+        "jest": "^27.0.6",
+        "pinst": "^2.1.6",
+        "prettier": "2.3.2",
+        "rollup": "^2.55.1",
+        "rollup-plugin-dts": "^3.0.2",
+        "rollup-plugin-livereload": "^2.0.5",
+        "rollup-plugin-serve": "^1.1.0",
+        "typescript": "4.3.5"
+    },
+    "dependencies": {
+        "@math.gl/core": "^3.5.3",
+        "mitt": "^3.0.0"
+    }
+}
