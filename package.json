@@ -55,7 +55,7 @@
         "husky": "7.0.1",
         "jest": "^27.0.6",
         "pinst": "^2.1.6",
-        "prettier": "2.3.2",
+        "prettier": "2.4.1",
         "rollup": "^2.55.1",
         "rollup-plugin-dts": "^3.0.2",
         "rollup-plugin-livereload": "^2.0.5",
